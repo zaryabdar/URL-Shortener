@@ -1,7 +1,9 @@
 from flask import Flask, render_template
 from config import Config
-from extensions import db 
+from extensions import db,login_manager
 from flask_migrate import Migrate
+from models import User, Link
+from routes.auth import auth
 
 app = Flask(__name__)
 
@@ -11,7 +13,9 @@ db.init_app(app)
 
 migrate = Migrate(app, db)
 
-from models import User, Link
+login_manager.init_app(app)
+
+app.register_blueprint(auth)
 
 if __name__ == "__main__":
     app.run(debug=True)
