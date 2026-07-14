@@ -1,6 +1,8 @@
-from extensions import db
+from extensions import db, login_manager
 from flask_login import UserMixin
 from datetime import datetime
+
+
 
 class User(UserMixin, db.Model):
     __tablename__="users"  #optional
@@ -23,3 +25,7 @@ class Link(db.Model):
     click_count = db.Column(db.Integer, default = 0)
 
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable = False )
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
