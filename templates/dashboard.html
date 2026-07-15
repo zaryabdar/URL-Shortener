@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block body %}
+    
+    <h1>Shorten Your URL</h1>
+    <form method="POST">
+        {{form.hidden_tag()}}
+        <div>
+            {{form.original_url.label}}
+            {{form.original_url()}}
+        </div>
+        <div>
+            {{form.submit()}}
+        </div>
+    </form>
+{% endblock body %}

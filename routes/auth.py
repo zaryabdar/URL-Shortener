@@ -29,7 +29,7 @@ def login():
         user = User.query.filter_by(email= form.email.data).first()
         if user and check_password_hash(user.password_hash, form.password.data):
             login_user(user)
-            return redirect(url_for("main.home"))
+            return redirect(url_for("main.dashboard"))
     return render_template("login.html", form = form)
 
 @auth.route("/logout")
