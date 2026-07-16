@@ -6,6 +6,7 @@ from models import User, Link
 from routes.auth import auth
 from routes.main import main
 
+
 app = Flask(__name__)
 
 app.config.from_object(Config)
@@ -18,6 +19,7 @@ login_manager.init_app(app)
 
 app.register_blueprint(auth)
 app.register_blueprint(main)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

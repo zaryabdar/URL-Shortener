@@ -12,4 +12,13 @@
             {{form.submit()}}
         </div>
     </form>
+
+    <h2>Your Links</h2>
+    {% for link in links %}
+    <div>
+        <a href="{{ url_for('main.redirect_to_url', short_code=link.short_code, _external=True) }}">
+        {{ url_for('main.redirect_to_url', short_code=link.short_code, _external=True) }}
+        </a>
+    </div>
+    {% endfor %}
 {% endblock body %}
