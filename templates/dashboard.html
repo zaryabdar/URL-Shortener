@@ -1,24 +1,52 @@
-{% extends 'base.html' %}
-{% block body %}
-    
-    <h1>Shorten Your URL</h1>
-    <form method="POST">
-        {{form.hidden_tag()}}
-        <div>
-            {{form.original_url.label}}
-            {{form.original_url()}}
-        </div>
-        <div>
-            {{form.submit()}}
-        </div>
-    </form>
+{% extends 'base.html' %} {% block body %}
 
-    <h2>Your Links</h2>
-    {% for link in links %}
-    <div>
-        <a href="{{ url_for('main.redirect_to_url', short_code=link.short_code, _external=True) }}">
-        {{ url_for('main.redirect_to_url', short_code=link.short_code, _external=True) }}
-        </a>
-    </div>
-    {% endfor %}
+<a href="{{url_for('auth.logout')}}"> Logout</a>
+
+<h1>Shorten Your URL</h1>
+<form method="POST">
+  {{form.hidden_tag()}}
+  <div>{{form.original_url.label}} {{form.original_url()}}</div>
+  <div>{{form.submit()}}</div>
+</form>
+
+<h2>Your Links</h2>
+{% for link in links %}
+<div>
+  <p>Original URL : {{ link.original_url }}</p>
+  <p>Short Code : {{ link.short_code }}</p>
+  <p>Clicks: {{ link.click_count }}</p>
+  <p>
+   Created At : {{ link.created_at.strftime("%d-%b-%Y %I:%M %p") }}
+    </p>
+    
+  <a
+    id="url{{ link.id }}" href="{{ url_for('main.redirect_to_url', short_code=link.short_code, _external=True) }}"
+  >
+    {{ url_for('main.redirect_to_url', short_code=link.short_code,
+    _external=True) }}
+  </a>
+  <button type="button" onclick="copylink('url{{link.id}}',this)">
+    Copy
+  </button>
+</div>
+<form method="POST" action="{{url_for('main.delete_url',link_id=link.id)}}">
+  <div>
+    <button type="submit">Delete</button>
+  </div>
+</form>
+{% endfor %}
+<script>
+  function copylink(id, button) {
+    const link = document.getElementById(id);
+
+    navigator.clipboard.writeText(link.href);
+
+    button.textContent  = "Copied ";
+
+    setTimeout(() => {
+      button.textContent  = "Copy";
+    }, 2000);
+  }
+</script>
+
 {% endblock body %}

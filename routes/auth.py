@@ -1,7 +1,7 @@
-from flask import Blueprint, render_template, redirect, url_for
+from flask import Blueprint, render_template, redirect, url_for, flash
 from forms import RegistrationForm,LoginForm
 from models import User
-from flask_login import login_required, logout_user, login_user
+from flask_login import login_required, logout_user, login_user, current_user
 from extensions import db
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -19,6 +19,7 @@ def register():
         )
         db.session.add(user)
         db.session.commit()
+        flash("Account created successfully.", "success")
         return redirect(url_for("auth.login"))
     return render_template("register.html", form = form) 
 
@@ -28,8 +29,11 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email= form.email.data).first()
         if user and check_password_hash(user.password_hash, form.password.data):
-            login_user(user)
-            return redirect(url_for("main.dashboard"))
+            login_user(user, remember=form.remember_me.data)
+            flash("Welcome back!", "success")
+            if current_user.is_authenticated:
+                return redirect(url_for("main.dashboard"))
+        flash("Invalid email or password.", "danger")
     return render_template("login.html", form = form)
 
 @auth.route("/logout")

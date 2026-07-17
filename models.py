@@ -21,7 +21,7 @@ class Link(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     original_url = db.Column(db.String(200), unique =True, nullable = False)
     short_code = db.Column(db.String(100), nullable = False)
-    created_at = db.Column(db.DateTime, default = datetime.utcnow)
+    created_at = db.Column(db.DateTime, default = datetime.now)
     click_count = db.Column(db.Integer, default = 0)
 
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable = False )
