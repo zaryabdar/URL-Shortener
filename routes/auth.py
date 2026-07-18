@@ -21,7 +21,7 @@ def register():
         db.session.commit()
         flash("Account created successfully.", "success")
         return redirect(url_for("auth.login"))
-    return render_template("register.html", form = form) 
+    return render_template("register.html", form = form, show_footer = False) 
 
 @auth.route("/login", methods=["GET","POST"])
 def login():

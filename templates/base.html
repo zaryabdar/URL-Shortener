@@ -5,25 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URL SHORTNER</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @view-transition {
+        navigation: auto;
+    }
+    </style>
     <link rel="stylesheet" href="static\styles\style.css">
 </head>
 
-<body>
-    {% with messages = get_flashed_messages(with_categories=True) %}
-    {% if messages %}
+<body class="bg-gray-950 box-border">
+    <div class="fixed top-5 right-5 z-50 space-y-3">
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
 
-    {% for category, message in messages %}
-     <div class="{{ category }}">
-                {{ message }}
-            </div>
+        {% for category, message in messages %}
+        <div class="px-5 py-3 rounded-xl shadow-lg font-medium
+            {% if category == 'success' %}
+                bg-green-600
+            {% elif category == 'danger' %}
+                bg-red-700
+            {% elif category == 'warning' %}
+                bg-yellow-400 text-black-2
+            {% else %}
+                bg-blue-900
+            {% endif %}
+            ">
+            {{message}}
+        </div>
 
-    {% endfor %}
+        {% endfor %}
 
-    {% endif %}
-    {% endwith %}
+        {% endif %}
+        {% endwith %}
+
+    </div>
+
     {% block body %}
 
     {% endblock body %}
+    {% if show_footer %}
+        <footer>
+        <p class=" bg-gray-950 text-center text-sm text-teal-100 mt-2">
+            © 2026 URL Shortener. Built with Flask & Tailwind CSS.
+        </p>
+    </footer>
+    {% endif %}
+    
 </body>
 
 </html>

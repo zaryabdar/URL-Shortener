@@ -1,33 +1,156 @@
 {% extends 'base.html' %}
 {% block body %}
 
-<form method="POST">
+<div class="min-h-screen bg-gray-950 flex p-2 gap-6 transition-all duration-500">
+    <div class="hidden lg:flex lg:w-3/5 flex-col justify-start p-16 text-white">
+        <div>
 
-    {{form.hidden_tag()}}
-    <div>
-        {{form.username.label}}
-        {{form.username()}}
-    </div>
+            <div class="w-20 h-20 rounded-3xl bg-white/20 flex items-center justify-center shadow-lg mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+                </svg>
 
-    <div>
-        {{form.email.label}}
-        {{form.email()}}
-    </div>
-    
-    <div>
-        {{form.password.label}}    
-        {{form.password()}}   
-    </div>
-    
-    <div>
-        {{form.confirm_password.label}} 
-        {{form.confirm_password()}}
-    </div>
-    
-    <div>
-        {{form.submit()}}
-    </div>
+            </div>
 
-</form>
-    
+            <h1 class="text-6xl font-extrabold tracking-tight px-5">
+                URL <span class="text-teal-300">Shortener</span>
+            </h1>
+
+            <p class="mt-4 text-lg text-teal-100 max-w-lg leading-relaxed pl-10">
+                Simplify your links, monitor engagement, and share smarter with a
+                fast, secure, and modern URL shortening platform.
+            </p>
+
+        </div>
+
+
+        <div class="space-y-6 pl-14">
+
+            <div class="flex items-start rounded-2xl bg-white/5 hover:bg-white/10 transition p-3 gap-4">
+
+                <div class="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center text-2xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+</svg>
+
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-xl">
+                        Lightning Fast
+                    </h3>
+
+                    <p class="text-teal-100">
+                        Generate short links instantly with a single click.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="flex items-start rounded-2xl bg-white/5 hover:bg-white/10 transition p-3 gap-4">
+
+                <div class="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center text-2xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z" />
+</svg>
+
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-xl">
+                        Track Every Click
+                    </h3>
+
+                    <p class="text-teal-100">
+                        Monitor clicks and understand how your links perform.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="flex items-start rounded-2xl bg-white/5 hover:bg-white/10 transition p-3 gap-4">
+
+                <div class="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center text-2xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+</svg>
+
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-xl">
+                        Secure & Reliable
+                    </h3>
+
+                    <p class="text-teal-100">
+                        Built with authentication and dependable performance.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="lg:w-2/5 flex items-center justify-center ">
+        <div class="w-full max-w-lg bg-teal-800/30 backdrop-blur-xl rounded-3xl border border-white/10 shadow-3xl px-8 py-6" style="view-transition-name: auth-form;">
+            <div class="text-center mb-8 ">
+                <h3 class="text-white text-4xl font-bold p-2  mb-2 ">Create your Account</h3>
+                <p class=" text-white ">Join thousands of users shortening links every day.</p>
+            </div>
+            <form method="POST" class="space-y-5">
+
+                {{form.hidden_tag()}}
+                <div>
+                    {{form.username.label(class ="block text-sm font-medium text-white mb-2" )}}
+                    {{form.username(class = "w-full rounded-xl bg-white/10 border border-white/20 px-2 py-2 text-white
+                    focus:outline-none focus:ring-4 focus:ring-teal-500/20 focus:border-teal-400 transition-all
+                    duration-300"
+                    )}}
+                </div>
+
+                <div>
+                    {{form.email.label(class ="block text-sm font-medium text-white mb-2" )}}
+                    {{form.email(class = "w-full rounded-xl bg-white/10 border border-white/10 px-2 py-2 text-white
+                    focus:outline-none focus:ring-4 focus:ring-teal-500/20 focus:border-teal-400 transition-all
+                    duration-300
+                    focus:outline-none focus:ring-black-400")}}
+                </div>
+
+                <div>
+                    {{form.password.label(class ="block text-sm font-medium text-white mb-2" )}}
+                    {{form.password(class = "w-full rounded-xl bg-white/10 border border-white/20 px-2 py-2 text-white
+                    focus:outline-none focus:ring-4 focus:ring-teal-500/20 focus:border-teal-400 transition-all
+                    duration-300
+                    focus:outline-none focus:ring-cyan-400")}}
+                </div>
+
+                <div>
+                    {{form.confirm_password.label(class ="block text-sm font-medium text-white mb-2" )}}
+                    {{form.confirm_password(class = "w-full rounded-xl bg-white/10 border border-white/20 px-2 py-2
+                    focus:outline-none focus:ring-4 focus:ring-teal-500/20 focus:border-teal-400 transition-all
+                    duration-300
+                    text-white placeholder-slate-300 focus:outline-none focus:ring-cyan-400")}}
+                </div>
+
+                <div>
+                    {{form.submit(class="w-full bg-teal-700 hover:bg-teal-950 text-white py-3 rounded-xl font-semibold
+                    transition duration-300 cursor-pointer hover:-translate-y-1 active:scale-95 transition-all " )}}
+                </div>
+                <p class=" text-center text-slate-300 mt-6">
+                    Already have an Account?
+                    <a href="{{url_for('auth.login')}}"
+                        class="text-white-500 hover:text-teal-500 font-semibold">Login</a>
+                </p>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
 {% endblock body %}

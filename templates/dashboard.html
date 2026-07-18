@@ -1,14 +1,25 @@
 {% extends 'base.html' %} {% block body %}
 
+<div class=" text-white min-h-screen mx-auto px-6 py-8">
+  <nav class=" w-full sticky top-0 text-white flex items-center justify-between bg-green-600 p-3 ">
+  <p>URL Shortener</p>
+  <p>Dashboard</p>
+  
 <a href="{{url_for('auth.logout')}}"> Logout</a>
-
-<h1>Shorten Your URL</h1>
-<form method="POST">
-  {{form.hidden_tag()}}
-  <div>{{form.original_url.label}} {{form.original_url()}}</div>
-  <div>{{form.submit()}}</div>
-</form>
-
+<p>User Name</p>
+</nav>
+<div class="">
+    <div class=">
+        <div class="">
+          <h1 class="">Shorten Your URL</h1>
+          <form method="POST">
+            {{form.hidden_tag()}}
+            <div>{{form.original_url.label(class="form-label")}} {{form.original_url()}}</div>
+            <div>{{form.submit()}}</div>
+          </form>
+        </div>
+    </div>
+</div>
 <h2>Your Links</h2>
 {% for link in links %}
 <div>
@@ -35,6 +46,12 @@
   </div>
 </form>
 {% endfor %}
+
+</div>
+
+
+
+
 <script>
   function copylink(id, button) {
     const link = document.getElementById(id);
