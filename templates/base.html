@@ -15,31 +15,27 @@
 </head>
 
 <body class="bg-gray-950 box-border">
-    <div class="fixed top-5 right-5 z-50 space-y-3">
-        {% with messages = get_flashed_messages(with_categories=True) %}
-        {% if messages %}
-
-        {% for category, message in messages %}
-        <div class="px-5 py-3 rounded-xl shadow-lg font-medium
-            {% if category == 'success' %}
-                bg-green-600
-            {% elif category == 'danger' %}
-                bg-red-700
-            {% elif category == 'warning' %}
-                bg-yellow-400 text-black-2
-            {% else %}
-                bg-blue-900
-            {% endif %}
-            ">
-            {{message}}
-        </div>
-
-        {% endfor %}
-
+    <div class="fixed top-20 right-5 z-[60] space-y-3 max-w-xs">
+    {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="px-5 py-3 rounded-xl shadow-lg shadow-black/30 font-medium border text-sm
+        {% if category == 'success' %}
+            bg-teal-950 text-teal-300 border-teal-800/50
+        {% elif category == 'danger' %}
+            bg-red-950 text-red-300 border-red-900/50
+        {% elif category == 'warning' %}
+            bg-yellow-950 text-yellow-300 border-yellow-900/50
+        {% else %}
+            bg-gray-800 text-gray-300 border-gray-700
         {% endif %}
-        {% endwith %}
-
+        ">
+        {{ message }}
     </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+</div>
 
     {% block body %}
 
