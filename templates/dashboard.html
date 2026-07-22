@@ -2,7 +2,6 @@
 
 <div class="">
 
-  <!-- Navbar -->
   <nav class="w-full h-16 sticky top-0 z-50 bg-white/70 dark:bg-gray-700/10 backdrop-blur-xl border-b border-teal-800/20 dark:border-teal-900/10 shadow-sm px-8 flex items-center justify-between">
     <div class="flex items-center gap-3">
       <div class="w-9 h-9 rounded-lg bg-teal-700 dark:bg-teal-700 flex items-center justify-center shadow-md">
@@ -24,13 +23,11 @@
                text-gray-100 hover:bg-teal-900 dark:hover:bg-teal-800 transition-colors"
         aria-label="Toggle dark mode"
       >
-        <!-- Sun icon (shown in dark mode) -->
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
           stroke="currentColor" class="size-5 hidden dark:block">
           <path stroke-linecap="round" stroke-linejoin="round"
             d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
         </svg>
-        <!-- Moon icon (shown in light mode) -->
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
           stroke="currentColor" class="size-5 block dark:hidden">
           <path stroke-linecap="round" stroke-linejoin="round"
@@ -47,33 +44,28 @@
 
   <div class="max-w-6xl mx-auto px-4 py-8">
 
-    <!-- Bento Grid -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
 
-      <!-- Hero tile: spans full width -->
       <div class="md:col-span-4 flex flex-col items-center justify-center gap-3 py-12 px-6 text-center
-                  bg-gradient-to-br from-teal-800 to-teal-700 dark:bg-gradient-to-br dark:from-gray-900 to-teal-800 text-white rounded-2xl shadow-md dark:shadow-gray-700 border border-teal-600 dark:border-teal-700">
+                  bg-gradient-to-br from-gray-800 to-teal-800 dark:bg-gradient-to-br dark:from-gray-900 to-teal-800 text-white rounded-2xl shadow-md dark:shadow-gray-700 border border-teal-600 dark:border-teal-700">
         <h1 class="text-4xl sm:text-5xl font-bold tracking-tight">Welcome Back</h1>
         <p class="text-lg font-medium text-teal-100 dark:text-teal-300 max-w-xl">
           Create, manage, and track your shortened URLs with a fast and modern dashboard.
         </p>
       </div>
 
-      <!-- Stat tile: Total Links -->
       <div class="md:col-span-1 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-teal-800 p-6 flex flex-col justify-between">
         <p class="text-sm font-medium text-gray-400 dark:text-gray-100">Total Links</p>
         <p class="text-4xl font-bold text-gray-800 dark:text-gray-200 mt-2">{{ links | length }}</p>
         <p class="text-xs text-teal-700 dark:text-gray-100 font-medium mt-3">Links created so far</p>
       </div>
 
-      <!-- Stat tile: Total Clicks -->
       <div class="md:col-span-1 bg-white dark:bg-gray-800  rounded-2xl shadow-lg border border-gray-100 dark:border-teal-800  p-6 flex flex-col justify-between">
         <p class="text-sm font-medium text-gray-400 dark:text-gray-100">Total Clicks</p>
         <p class="text-4xl font-bold text-gray-800 dark:text-gray-200 mt-2">{{ links | sum(attribute='click_count') }}</p>
         <p class="text-xs text-teal-700 dark:text-gray-100 font-medium mt-3">Across all your links</p>
       </div>
 
-      <!-- Shorten form tile: spans 2 columns -->
       <div class="md:col-span-2 bg-white dark:bg-gray-800  rounded-2xl shadow-lg border border-gray-100 dark:border-teal-800 p-6 flex flex-col justify-center">
         <h2 class="text-xl font-bold text-gray-800 dark:text-gray-100  mb-4">Shorten Your URL</h2>
         <form method="POST" class="flex flex-col sm:flex-row gap-3">
@@ -90,12 +82,10 @@
         </form>
       </div>
 
-      <!-- Links section header -->
       <div class="md:col-span-4 mt-2">
         <h2 class="text-xl font-bold text-gray-800 dark:text-gray-100">Your Links</h2>
       </div>
 
-      <!-- Link tiles -->
       {% for link in links %}
       <div class="md:col-span-2 bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-teal-800 shadow-sm shadow-gray-700 dark:shadow-gray-500 hover:shadow-lg transition-shadow p-5 flex flex-col gap-3">
 
