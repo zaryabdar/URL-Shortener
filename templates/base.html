@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="bg-gray-100 dark:bg-gray-950">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,6 +12,10 @@
     </script>
     
     <style>
+      body {
+        transition: background-color 0.3s ease,
+                    color 0.3s ease;
+    }
       @view-transition {
         navigation: auto;
       }
@@ -19,7 +23,7 @@
   </head>
 
   <body
-    class="bg-gradient-to-br from-gray-300 via-gray-200 to-teal-200/60 min-h-screen flex flex-col text-black dark:text-white dark:bg-gradient-to-br dark:from-gray-950 dark:via-gray-800 dark:to-teal-950"
+    class=" transition-colors duration-300 bg-gradient-to-br from-gray-300 via-gray-200 to-teal-200/60 min-h-screen flex flex-col text-black dark:text-white dark:bg-gradient-to-br dark:from-gray-950 dark:via-gray-800 dark:to-teal-950"
   >
     <div class="fixed top-20 right-5 z-[60] space-y-3 max-w-xs">
       {% with messages = get_flashed_messages(with_categories=True) %} {% if

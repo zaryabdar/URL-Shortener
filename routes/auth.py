@@ -1,9 +1,10 @@
 from flask import Blueprint, render_template, redirect, url_for, flash
-from forms import RegistrationForm,LoginForm
+from forms import RegistrationForm,LoginForm,ForgotPasswordForm, ResetPasswordForm
 from models import User
 from flask_login import login_required, logout_user, login_user, current_user
 from extensions import db
 from werkzeug.security import generate_password_hash, check_password_hash
+from email_utils import send_reset_email
 
 auth = Blueprint("auth",__name__)
 
@@ -41,3 +42,55 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for("auth.login"))
+
+@auth.route("/forgot-password", methods=["GET", "POST"])
+def forgot_password():
+
+    form = ForgotPasswordForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(
+            email=form.email.data
+        ).first()
+
+        if user:
+            send_reset_email(user)
+
+        flash(
+            "If an account exists, a reset link has been sent.",
+            "success"
+        )
+
+        return redirect(url_for("auth.login"))
+
+    return render_template(
+        "forgot_password.html",
+        form=form
+    )
+
+@auth.route("/reset-password/<token>", methods=["GET", "POST"])
+def reset_password(token):
+
+    user = User.verify_reset_token(token)
+
+    if not user:
+        flash("Invalid or expired token.", "danger")
+        return redirect(url_for("auth.login"))
+
+    form = ResetPasswordForm()
+
+    if form.validate_on_submit():
+
+        user.password_hash = generate_password_hash(
+            form.password.data
+        )
+
+        db.session.commit()
+
+        flash("Password updated successfully!", "success")
+
+        return redirect(url_for("auth.login"))
+
+    return render_template(
+        "reset_password.html",
+        form=form
+    )

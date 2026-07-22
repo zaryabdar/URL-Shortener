@@ -1,7 +1,8 @@
 from extensions import db, login_manager
 from flask_login import UserMixin
 from datetime import datetime
-
+from itsdangerous import URLSafeTimedSerializer
+from flask import current_app
 
 
 class User(UserMixin, db.Model):
@@ -13,6 +14,21 @@ class User(UserMixin, db.Model):
     password_hash =db.Column(db.String(255), nullable = False)
 
     links = db.relationship("Link", backref = "user", lazy = True)
+
+    def get_reset_token(self):
+        serializer = URLSafeTimedSerializer(current_app.config["SECRET_KEY"])
+        return serializer.dumps(self.email)
+
+    @staticmethod
+    def verify_reset_token(token, expires_sec=1800):
+        serializer = URLSafeTimedSerializer(current_app.config["SECRET_KEY"])
+
+        try:
+            email = serializer.loads(token, max_age=expires_sec)
+        except Exception:
+            return None
+
+        return User.query.filter_by(email=email).first()
 
 
 class Link(db.Model):

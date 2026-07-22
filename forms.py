@@ -19,3 +19,11 @@ class UrlForm(FlaskForm):
     original_url = URLField("Enter URL", validators=[DataRequired(),URL()])
     submit = SubmitField("Shorten")
 
+class ForgotPasswordForm(FlaskForm):
+    email = StringField("Email", validators=[DataRequired(),Email()])
+    submit = SubmitField("Send Reset Link")
+
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField("New Password",validators=[DataRequired(),Length(min=8, max=20)])
+    confirm_password = PasswordField("Confirm New Password",validators=[DataRequired(),EqualTo("password")])
+    submit = SubmitField("Reset Password")
