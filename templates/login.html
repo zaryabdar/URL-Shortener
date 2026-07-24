@@ -1,10 +1,10 @@
 {% extends 'base.html' %} {% block body %}
 
-<div class="flex p-2 gap-6 transition-all duration-500">
+<div class="flex  p-2 gap-3 lg:gap-6 transition-all duration-500">
 
-  <div class="hidden sm:flex md:w-1/2 lg:w-3/5 flex-col justify-start p-16">
+  <div class="hidden md:flex w-3/5 flex-col justify-start p-8 lg:p-12">
     <div>
-      <div class="w-20 h-20 rounded-3xl bg-teal-800 dark:bg-teal-700 flex items-center justify-center shadow-lg mb-2">
+      <div class="w-16 h-16 lg:w-20 lg:h-20 rounded-2xl lg:rounded-3xl bg-teal-800 dark:bg-teal-700 flex items-center justify-center shadow-lg mb-2">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
           stroke="white" class="size-8">
           <path stroke-linecap="round" stroke-linejoin="round"
@@ -12,20 +12,20 @@
         </svg>
       </div>
 
-      <h1 class="text-6xl font-extrabold tracking-tight px-5 text-gray-800 dark:text-gray-100">
+      <h1 class="text-3xl lg:text-6xl font-extrabold tracking-tight px-3 lg:px-5 text-gray-800 dark:text-gray-100">
         URL <span class="text-teal-800 dark:text-teal-600 ">Shortener</span>
       </h1>
 
-      <p class="mt-4 text-lg text-teal-800 dark:text-teal-200 max-w-lg leading-relaxed pl-10">
+      <p class="mt-2 lg:mt-4 text-lg text-teal-800 dark:text-teal-200 max-w-lg leading-relaxed pl-6 lg:pl-10">
         Simplify your links, monitor engagement, and share smarter with a fast,
         secure, and modern URL shortening platform.
       </p>
     </div>
 
-    <div class="space-y-4 pl-14 mt-4">
+    <div class="space-y-2 lg:space-y-4 pl-10 lg:pl-14 mt-2 lg:mt-4 ">
 
-      <div class="flex items-start rounded-2xl bg-teal-700/10 dark:bg-teal-800/20 hover:bg-teal-700/20 dark:hover:bg-teal-800/40 transition p-4 gap-4">
-        <div class="w-12 h-12 shrink-0 rounded-xl bg-teal-800 dark:bg-teal-700  flex items-center justify-center">
+      <div class="flex items-start rounded-2xl bg-teal-700/10 dark:bg-teal-800/20 hover:bg-teal-700/20 dark:hover:bg-teal-800/40 transition p-2 lg:p-4 gap-4">
+        <div class="w-10 h-10 lg:w-12 lg:h-12 shrink-0 rounded-xl bg-teal-800 dark:bg-teal-700  flex items-center justify-center">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="white" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -33,13 +33,13 @@
           </svg>
         </div>
         <div>
-          <h3 class="font-semibold text-xl text-gray-800 dark:text-gray-200">Lightning Fast</h3>
+          <h3 class="font-bold text-lg lg:text-xl text-gray-800 dark:text-gray-200">Lightning Fast</h3>
           <p class="text-gray-600 dark:text-gray-300">Generate short links instantly with a single click.</p>
         </div>
       </div>
 
-      <div class="flex items-start rounded-2xl bg-teal-700/10 hover:bg-teal-700/20 transition p-4 gap-4">
-        <div class="w-12 h-12 shrink-0 rounded-xl bg-teal-800 dark:bg-teal-700  flex items-center justify-center">
+      <div class="flex items-start rounded-2xl bg-teal-700/10 hover:bg-teal-700/20 transition p-2 lg:p-4 gap-4">
+        <div class="w-10 h-10 lg:w-12 lg:h-12 shrink-0 rounded-xl bg-teal-800 dark:bg-teal-700  flex items-center justify-center">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="white" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -47,13 +47,13 @@
           </svg>
         </div>
         <div>
-          <h3 class="font-semibold text-xl text-gray-800 dark:text-gray-200">Track Every Click</h3>
+          <h3 class="font-bold text-lg lg:text-xl text-gray-800 dark:text-gray-200">Track Every Click</h3>
           <p class="text-gray-600 dark:text-gray-300">Monitor clicks and understand how your links perform.</p>
         </div>
       </div>
 
-      <div class="flex items-start rounded-2xl bg-teal-700/10 hover:bg-teal-700/20 transition p-4 gap-4">
-        <div class="w-12 h-12 shrink-0 rounded-xl bg-teal-800 dark:bg-teal-700  flex items-center justify-center">
+      <div class="flex items-start rounded-2xl bg-teal-700/10 hover:bg-teal-700/20 transition p-2 lg:p-4 gap-4">
+        <div class="w-10 h-10 lg:w-12 lg:h-12 shrink-0 rounded-xl bg-teal-800 dark:bg-teal-700  flex items-center justify-center">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="white" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -61,7 +61,7 @@
           </svg>
         </div>
         <div>
-          <h3 class="font-semibold text-xl text-gray-800 dark:text-gray-200">Secure & Reliable</h3>
+          <h3 class="font-bold text-lg lg:text-xl text-gray-800 dark:text-gray-200">Secure & Reliable</h3>
           <p class="text-gray-600 dark:text-gray-300">Built with authentication and dependable performance.</p>
         </div>
       </div>
@@ -70,54 +70,55 @@
   </div>
 
   <div class="w-full md:w-1/2 lg:w-2/5 flex items-center justify-center">
-    <div class="w-full max-w-lg min-h-[600px] bg-gray-950 dark:bg-gray-500/20 rounded-3xl border border-teal-800/30 shadow-2xl shadow-teal-900/30 dark:shadow-gray-700/20 ring-1 ring-black/5 p-8 flex flex-col justify-center">
+    <div class="w-full max-w-sm xl:max-w-lg min-h-[500px] xl:min-h-[600px] bg-gray-950 dark:bg-gray-500/20 rounded-3xl border border-teal-800/30 shadow-2xl shadow-teal-900/30 dark:shadow-gray-700/20 ring-1 ring-black/5 p-6 lg:p-8 flex flex-col justify-center">
 
-      <div class="text-center mb-8">
-        <div class="w-12 h-12 mx-auto rounded-2xl bg-teal-800  flex items-center justify-center shadow-md mb-4 lg:hidden">
+      <div class="text-center mb-4 lg:mb-8">
+        <div class="w-12 h-12 mx-auto rounded-2xl bg-teal-800  flex items-center justify-center shadow-md mb-4 md:hidden">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="white" class="size-7">
             <path stroke-linecap="round" stroke-linejoin="round"
               d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
           </svg>
         </div>
-        <h3 class="text-3xl font-bold text-gray-100 ">Login to Your Account</h3>
+        <h3 class="text-2xl lg:text-3xl font-bold text-gray-100 ">Login to Your Account</h3>
         <p class="text-gray-100 mt-2">Welcome back, enter your details below.</p>
       </div>
 
-      <form method="POST" class="space-y-5">
+      <form method="POST" class="space-y-2 lg:space-y-5">
         {{ form.hidden_tag() }}
 
         <div>
-          {{ form.email.label(class="block text-sm font-medium text-gray-100 mb-1.5") }}
-          {{ form.email(class="w-full rounded-lg bg-gray-50/25 border border-gray-600 px-4 py-2 text-gray-100
+          {{ form.email.label(class="block text-sm font-medium text-gray-100 mb-1 lg:mb-1.5") }}
+          {{ form.email(class="w-full rounded-lg bg-gray-50/25 border border-gray-600 px-4 py-1 lg:py-2 text-gray-100
                 focus:outline-none focus:ring-2 focus:ring-teal-100 focus:border-transparent transition") }}
         </div>
 
         <div>
-          {{ form.password.label(class="block text-sm font-medium text-gray-100 mb-1.5") }}
-          {{ form.password(class="w-full rounded-lg bg-gray-50/25 border border-gray-600 px-4 py-2 text-gray-100
+          {{ form.password.label(class="block text-sm font-medium text-gray-100 mb-1 lg:mb-1.5") }}
+          {{ form.password(class="w-full rounded-lg bg-gray-50/25 border border-gray-600 px-4 py-1 lg:py-2 text-gray-100
                 focus:outline-none focus:ring-2 focus:ring-teal-100 focus:border-transparent transition") }}
         </div>
         <div>
-          <a href="{{url_for('auth.forgot_password')}}"
-   class="text-teal-400 hover:text-teal-300 text-sm ">
-    Forgot Password?
-</a>
+          
         </div>
 
         <div class="flex items-center gap-2">
           {{ form.remember_me(class="w-4 h-4 rounded border-gray-300 text-teal-700 focus:ring-teal-600") }}
           {{ form.remember_me.label(class="text-sm font-medium text-gray-100") }}
+          <a href="{{url_for('auth.forgot_password')}}"
+   class="text-teal-400 hover:text-teal-300 text-sm ml-auto ">
+    Forgot Password?
+</a>
         </div>
 
         <div>
           {{ form.submit(class="w-full mt-2 bg-teal-700 dark:bg-teal-500 hover:bg-teal-800 dark:hover:bg-teal-700 text-white
-                py-3 rounded-xl font-semibold transition-all duration-300 cursor-pointer
+                py-1 lg:py-2 rounded-md lg:rounded-xl font-semibold transition-all duration-300 cursor-pointer
                 hover:-translate-y-0.5 active:scale-95 shadow-sm") }}
         </div>
       </form>
 
-      <p class="text-sm text-gray-100 text-center mt-6">
+      <p class="text-sm text-gray-100 text-center mt-4 lg:mt-6">
         Don't have an account?
         <a href="{{ url_for('auth.register') }}"
           class="text-teal-300 font-medium hover:text-teal-500 hover:underline">
