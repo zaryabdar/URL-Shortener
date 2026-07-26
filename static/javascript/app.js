@@ -11,6 +11,11 @@ function toggleTheme() {
     }
 }
 
+function toggleMenu(){
+    const Menu = document.getElementById('mobile-menu')
+    Menu.classList.toggle("hidden")
+}
+
 if (localStorage.getItem("theme") === "dark") {
     document.documentElement.classList.add("dark");
 } else {
