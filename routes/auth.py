@@ -12,6 +12,17 @@ auth = Blueprint("auth",__name__)
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
+        if User.query.filter_by(username=form.username.data).first():
+            form.username.errors.append("Username already exists.")
+            flash("Username Already Taken.", "danger")
+            return render_template("register.html", form=form)
+            
+
+        if User.query.filter_by(email=form.email.data).first():
+            form.email.errors.append("Email already exists.")
+            flash("Already have Account on this Email.", "danger")
+            return render_template("register.html", form=form)
+    
         hash_password = generate_password_hash(form.password.data)
         user = User(
             username = form.username.data,
@@ -22,7 +33,7 @@ def register():
         db.session.commit()
         flash("Account created successfully.", "success")
         return redirect(url_for("auth.login"))
-    return render_template("register.html", form = form, show_footer = False) 
+    return render_template("register.html", form = form) 
 
 @auth.route("/login", methods=["GET","POST"])
 def login():
@@ -41,6 +52,7 @@ def login():
 @login_required
 def logout():
     logout_user()
+    flash("Logged out successfully.", "success")
     return redirect(url_for("auth.login"))
 
 @auth.route("/forgot-password", methods=["GET", "POST"])
@@ -56,7 +68,7 @@ def forgot_password():
             send_reset_email(user)
 
         flash(
-            "If an account exists, a reset link has been sent.",
+            "A reset link has been sent to your mail.",
             "success"
         )
 

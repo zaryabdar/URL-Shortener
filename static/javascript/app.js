@@ -1,3 +1,14 @@
+    const flashes = document.querySelectorAll(".flash-message");
+
+    flashes.forEach((flash)=>{
+        setTimeout(()=>{
+            flash.classList.add("hide");
+
+            setTimeout(()=>{
+                flash.remove();
+            },3000)
+        },5000);
+    });
 
 function toggleTheme() {
     const html = document.documentElement;

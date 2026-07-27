@@ -9,5 +9,5 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USE_SSL = False
 
-    MAIL_USERNAME = "zdar2005@gmail.com"
-    MAIL_PASSWORD = "gnwwkdzmmwodsgcn"
+    MAIL_USERNAME = ""
+    MAIL_PASSWORD = ""
