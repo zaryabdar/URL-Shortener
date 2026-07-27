@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="bg-gray-100 dark:bg-gray-950">
+<html lang="en" class="bg-gray-100 dark:bg-gray-950 scroll-smooth" >
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -67,10 +67,10 @@
     </div>
 
     <main class="flex-1">{% block body %} {% endblock body %}</main>
-    {% if show_footer %}
+    {% if request.endpoint == 'main.dashboard' %}
     <footer>
       <p
-        class="bg-teal-700 text-center text-sm text-teal-100 py-1 dark:bg-gray-900"
+        class="bg-teal-800 text-center text-[10px] text-teal-100 py-sm dark:bg-teal-700"
       >
         © 2026 URL Shortener. Built with Flask & Tailwind CSS.
       </p>
