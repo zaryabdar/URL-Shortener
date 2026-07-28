@@ -12,17 +12,6 @@ auth = Blueprint("auth",__name__)
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        if User.query.filter_by(username=form.username.data).first():
-            form.username.errors.append("Username already exists.")
-            flash("Username Already Taken.", "danger")
-            return render_template("register.html", form=form)
-            
-
-        if User.query.filter_by(email=form.email.data).first():
-            form.email.errors.append("Email already exists.")
-            flash("Already have Account on this Email.", "danger")
-            return render_template("register.html", form=form)
-    
         hash_password = generate_password_hash(form.password.data)
         user = User(
             username = form.username.data,
