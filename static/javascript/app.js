@@ -1,4 +1,13 @@
-    const flashes = document.querySelectorAll(".flash-message");
+   document.addEventListener("DOMContentLoaded", () => {
+    const password = document.getElementById("password");
+    const toggle = document.getElementById("togglePassword");
+
+    toggle.addEventListener("click", () => {
+        password.type = password.type === "password" ? "text" : "password";
+    });
+});
+
+   const flashes = document.querySelectorAll(".flash-message");
 
     flashes.forEach((flash)=>{
         setTimeout(()=>{
@@ -27,11 +36,7 @@ function toggleMenu(){
     Menu.classList.toggle("hidden")
 }
 
-if (localStorage.getItem("theme") === "dark") {
-    document.documentElement.classList.add("dark");
-} else {
-    document.documentElement.classList.remove("dark");
-}
+
 
 function copylink(id, button) {
     const link = document.getElementById(id);
