@@ -198,25 +198,29 @@
           {% endfor %}
         </div>
 
-        <div>
+        <div class="relative" >
           {{ form.password.label(class="block text-sm font-medium text-gray-100
-          mb-1 xl:mb-1.5") }} {{ form.password(class="w-full rounded-lg
+          mb-1 xl:mb-1.5") }} {{ form.password(class="password-input w-full rounded-lg
           bg-gray-50/20 border border-gray-600 px-4 py-1 xl:py-2 text-gray-100
           focus:outline-none focus:ring-2 focus:ring-teal-100
           focus:border-transparent transition") }} 
+          <button
+        type="button"
+        class="toggle-password absolute right-3 top-1/2 ">
+        <i class="fa-regular fa-eye"></i>
+    </button>
         </div>
 
-        <div>
+        <div class="relative">
           {{ form.confirm_password.label(class="block text-sm font-medium
           text-gray-100 mb-1 xl:mb-1.5") }} {{
-          form.confirm_password(id="password" , class="password-inputrounded-lg bg-gray-50/20 border
+          form.confirm_password(class="password-input w-full rounded-lg bg-gray-50/20 border
           border-gray-600 px-4 py-1 xl:py-2 text-gray-100 focus:outline-none
           focus:ring-2 focus:ring-teal-100 focus:border-transparent transition")
           }} 
           <button
         type="button"
-        id="togglePassword"
-        class=" text-gray-400 hover:text-white">
+        class="toggle-password absolute right-3 top-1/2 ">
         <i class="fa-regular fa-eye"></i>
     </button>
           {% if form.confirm_password.errors %} {% for error in

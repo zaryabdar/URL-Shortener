@@ -1,9 +1,17 @@
-   document.addEventListener("DOMContentLoaded", () => {
-    const password = document.getElementById("password");
-    const toggle = document.getElementById("togglePassword");
+    const toggleButtons = document.querySelectorAll(".toggle-password");
 
-    toggle.addEventListener("click", () => {
-        password.type = password.type === "password" ? "text" : "password";
+toggleButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const input = button.parentElement.querySelector(".password-input");
+        const icon = button.querySelector("i");
+
+        if (input.type === "password") {
+            input.type = "text";
+            icon.classList.replace("fa-eye", "fa-eye-slash");
+        } else {
+            input.type = "password";
+            icon.classList.replace("fa-eye-slash", "fa-eye");
+        }
     });
 });
 
