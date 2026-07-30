@@ -30,7 +30,6 @@ class User(UserMixin, db.Model):
 
         return User.query.filter_by(email=email).first()
 
-
 class Link(db.Model):
     __tablename__= "links"
 
