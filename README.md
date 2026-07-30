@@ -15,7 +15,7 @@ A modern URL Shortener web application built with Flask that allows users to sho
 
 ### Dashboard in Light & Dark Theme 
 
-![Dashboard](screenshots/DashBoard-Light.png)
+![Dashboard](screenshots/Dashboard-Light.png)
 ![Dashboard](screenshots/Dashboard-Dark.png)
 ---
 
@@ -23,17 +23,18 @@ A modern URL Shortener web application built with Flask that allows users to sho
 
 - User Registration & Login
 - Secure Password Hashing
-- User Authentication
-- Create Short URLs
-- Redirect to Original URLs
-- Copy Short Links
-- Click Analytics
+- Flask-Login Authentication
+- URL Shortening
+- Automatic Short Code Generation
+- Personalized Dashboard
+- Copy Short URL
 - Delete URLs
-- Responsive Design
-- Dark Theme UI
+- Click Analytics
+- Responsive UI
+- Dark Theme
 - Flash Messages
-- Form Validation
-- Protected Dashboard
+- Inline Form Validation
+- CSRF Protection
 
 ---
 
@@ -52,6 +53,7 @@ A modern URL Shortener web application built with Flask that allows users to sho
 - CSS3
 - Tailwind CSS
 - JavaScript
+- Jinja2
 
 ### Database
 - SQLite
@@ -157,6 +159,20 @@ python run.py
 - Session Authentication
 - Login Required Routes
 - Form Validation
+
+---
+
+## What I Learned
+
+- Flask Application Factory
+- Authentication with Flask-Login
+- Database Design using SQLAlchemy
+- Flask-WTF Forms
+- Migrations
+- Jinja2 Templates
+- CRUD Operations
+- Tailwind CSS
+- JavaScript DOM Manipulation
 
 ---
 
