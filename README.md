@@ -15,8 +15,8 @@ A modern URL Shortener web application built with Flask that allows users to sho
 
 ### Dashboard in Light & Dark Theme 
 
-![Dashboard](screenshots/DashBoard Light Theme.png)
-![Dashboard](screenshots/Dashboard Dark Theme.png)
+![Dashboard](screenshots/DashBoard-Light.png)
+![Dashboard](screenshots/Dashboard-Dark.png)
 ---
 
 ## ✨ Features
