@@ -34,8 +34,8 @@ class Link(db.Model):
     __tablename__= "links"
 
     id = db.Column(db.Integer, primary_key = True)
-    original_url = db.Column(db.String(200), unique =True, nullable = False)
-    short_code = db.Column(db.String(100), nullable = False)
+    original_url = db.Column(db.String(200), nullable = False)
+    short_code = db.Column(db.String(100), unique =True , nullable = False)
     created_at = db.Column(db.DateTime, default = datetime.now)
     click_count = db.Column(db.Integer, default = 0)
 

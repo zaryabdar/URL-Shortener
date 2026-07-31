@@ -17,9 +17,16 @@ def generate_short_code(length = 6):
 def dashboard():
     form = UrlForm()
 
-
     if form.validate_on_submit():
-        original_url = form.original_url.data
+
+        original_url = form.original_url.data.strip()
+            
+        existing_link = Link.query.filter_by(original_url=original_url).first()
+            
+        if existing_link:
+            flash("This URL has already been shortened.", "warning")
+            return redirect(url_for("main.dashboard"))
+    
         while True:
             short_code = generate_short_code()
             exists = Link.query.filter_by(short_code = short_code).first()
