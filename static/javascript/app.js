@@ -54,5 +54,5 @@ function copylink(id, button) {
 
   setTimeout(() => {
     button.textContent = original;
-  }, 2000);
+  }, 2000); 
 }
